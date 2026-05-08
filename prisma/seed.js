@@ -59,7 +59,48 @@ async function main() {
     });
   }
 
-  console.log("Seed successful: Admin and Blog Posts created.");
+  // Clear existing gallery items
+  await prisma.galleryItem.deleteMany();
+
+  // Create Gallery Items
+  const galleryItems = [
+    {
+      title: "Lüks Otel Lobisi Parlatma",
+      category: "Mermer Silim",
+      imageUrl: "/images/gallery-1.png",
+      isBeforeAfter: false,
+      order: 1
+    },
+    {
+      title: "Profesyonel Ekipman Çalışması",
+      category: "Uygulama",
+      imageUrl: "/images/gallery-2.png",
+      isBeforeAfter: false,
+      order: 2
+    },
+    {
+      title: "Premium Banyo Restorasyonu",
+      category: "Restorasyon",
+      imageUrl: "/images/gallery-3.png",
+      isBeforeAfter: false,
+      order: 3
+    },
+    {
+      title: "Önce ve Sonra Karşılaştırması",
+      category: "Restorasyon",
+      imageUrl: "/images/gallery-4.png",
+      isBeforeAfter: true,
+      order: 4
+    }
+  ];
+
+  for (const item of galleryItems) {
+    await prisma.galleryItem.create({
+      data: item
+    });
+  }
+
+  console.log("Seed successful: Admin, Blog Posts, and Gallery Items created.");
 }
 
 main()
