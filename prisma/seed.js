@@ -24,7 +24,7 @@ async function main() {
       slug: "mermer-silimi-ve-parlatmanin-onemi",
       content: "Mermer yüzeyler zamanla matlaşır ve çizilir. Profesyonel silim işlemi mermerin ilk günkü parlaklığına kavuşmasını sağlar. Bu yazımızda mermer bakımının inceliklerini anlatıyoruz...",
       category: "Bakım Rehberi",
-      coverImage: "/images/service-1.png",
+      coverImage: "/images/blog-1.png",
       published: true,
       seoTitle: "Mermer Silimi ve Parlatma Rehberi",
       seoDescription: "Mermer yüzeylerin bakımı ve parlatma işlemleri hakkında uzman görüşleri."
@@ -34,7 +34,7 @@ async function main() {
       slug: "dogal-tas-restorasyonunda-profesyonel-cozumler",
       content: "Traverten, mermer veya granit... Her taşın restorasyon tekniği farklıdır. Mermorex Silim olarak uyguladığımız ileri teknoloji yöntemlerle taşlarınızın ömrünü uzatıyoruz.",
       category: "Restorasyon",
-      coverImage: "/images/service-2.png",
+      coverImage: "/images/blog-2.png",
       published: true,
       seoTitle: "Doğal Taş Restorasyonu Teknikleri",
       seoDescription: "Eskimiş ve yıpranmış doğal taşların restorasyon süreçleri."
@@ -44,7 +44,7 @@ async function main() {
       slug: "mozaik-ve-karo-siliminde-nelere-dikkat-edilmeli",
       content: "Mozaik ve karo yüzeyler, doğru ekipman kullanılmadığında zarar görebilir. Elmas uçlu makinelerimizle sıfır toz politikasıyla gerçekleştirdiğimiz silim işlemlerini keşfedin.",
       category: "Teknik Bilgi",
-      coverImage: "/images/service-3.png",
+      coverImage: "/images/blog-3.png",
       published: true,
       seoTitle: "Mozaik ve Karo Silimi Hakkında Her Şey",
       seoDescription: "Mozaik yüzeylerin temizliği ve pürüzsüzleştirilmesi için profesyonel ipuçları."
