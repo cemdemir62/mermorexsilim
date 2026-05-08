@@ -1,0 +1,65 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --primary: #b8860b;
+  --secondary: #2c3e50;
+  --accent: #d4af37;
+  --muted: #f4f4f4;
+  --border: #e5e5e5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f0e17;
+    --foreground: #fffffe;
+    --primary: #d4af37;
+    --secondary: #a7a9be;
+    --accent: #ff8906;
+    --muted: #2e2f3e;
+    --border: #242629;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.premium-gradient {
+  background: linear-gradient(135deg, #b8860b 0%, #d4af37 100%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-[#b8860b] text-white rounded-lg font-semibold hover:bg-[#d4af37] transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95;
+  }
+  
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-[#b8860b] text-[#b8860b] rounded-lg font-semibold hover:bg-[#b8860b] hover:text-white transition-all duration-300 active:scale-95;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
