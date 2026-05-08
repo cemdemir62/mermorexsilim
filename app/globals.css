@@ -11,16 +11,14 @@
   --border: #e5e5e5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f0e17;
-    --foreground: #fffffe;
-    --primary: #d4af37;
-    --secondary: #a7a9be;
-    --accent: #ff8906;
-    --muted: #2e2f3e;
-    --border: #242629;
-  }
+.dark {
+  --background: #0f0e17;
+  --foreground: #fffffe;
+  --primary: #d4af37;
+  --secondary: #a7a9be;
+  --accent: #ff8906;
+  --muted: #2e2f3e;
+  --border: #242629;
 }
 
 body {
