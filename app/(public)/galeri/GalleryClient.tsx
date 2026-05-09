@@ -1,12 +1,29 @@
 "use client";
 
+import React, { useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
-import { Camera } from "lucide-react";
+import { Camera, Filter } from "lucide-react";
 import Navbar from "@/components/public/Navbar";
 import Footer from "@/components/public/Footer";
 
 export default function GalleryClient({ items }: { items: any[] }) {
   const { t } = useLanguage();
+  const [filter, setFilter] = useState("all");
+
+  const filters = [
+    { label: t("gallery.all"), value: "all" },
+    { label: "Mermer", value: "MERMER" },
+    { label: "Granit", value: "GRANIT" },
+    { label: "Çini", value: "CINI" },
+    { label: "Mozaik", value: "MOZAIK" },
+    { label: "Karo", value: "KARO" },
+    { label: "Beton", value: "BETON" },
+    { label: "Paledyen/Traverten", value: "PALEDYEN_TRAVERTEN" },
+  ];
+
+  const filteredItems = filter === "all" 
+    ? items 
+    : items.filter(item => item.category === filter);
 
   return (
     <main className="min-h-screen bg-white">
@@ -24,12 +41,39 @@ export default function GalleryClient({ items }: { items: any[] }) {
         </div>
       </section>
 
+      {/* Filter Bar */}
+      <section className="py-12 border-b sticky top-20 bg-white z-30">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center space-x-6 overflow-x-auto pb-4 no-scrollbar scroll-smooth">
+            <div className="flex items-center space-x-2 text-[#b8860b] font-bold uppercase tracking-widest text-xs pr-4 border-r">
+              <Filter size={16} />
+              <span>Filtrele</span>
+            </div>
+            <div className="flex space-x-2 shrink-0">
+              {filters.map((f) => (
+                <button
+                  key={f.value}
+                  onClick={() => setFilter(f.value)}
+                  className={`px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all ${
+                    filter === f.value 
+                    ? "bg-[#b8860b] text-white shadow-lg shadow-[#b8860b]/20" 
+                    : "bg-gray-100 text-gray-500 hover:bg-gray-200"
+                  }`}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Gallery Grid */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          {items.length > 0 ? (
+          {filteredItems.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {items.map((item) => (
+              {filteredItems.map((item) => (
                 <div key={item.id} className="group relative rounded-[2.5rem] overflow-hidden shadow-xl bg-gray-100 aspect-square">
                   <img 
                     src={item.imageUrl} 

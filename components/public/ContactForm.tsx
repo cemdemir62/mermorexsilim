@@ -118,15 +118,26 @@ const ContactForm = () => {
                 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">{t("contact.service")}</label>
-                  <select 
-                    {...register("service")}
-                    className="w-full px-5 py-4 rounded-xl border border-gray-300 bg-white focus:ring-4 focus:ring-[#b8860b]/10 focus:border-[#b8860b] outline-none transition-all appearance-none cursor-pointer"
-                  >
-                    <option value={t("contact.options.silim")}>{t("contact.options.silim")}</option>
-                    <option value={t("contact.options.granit")}>{t("contact.options.granit")}</option>
-                    <option value={t("contact.options.beton")}>{t("contact.options.beton")}</option>
-                    <option value={t("contact.options.other")}>{t("contact.options.other")}</option>
-                  </select>
+                    <select 
+                      {...register("service")}
+                      className="w-full px-5 py-4 rounded-xl border border-gray-300 bg-white focus:ring-4 focus:ring-[#b8860b]/10 focus:border-[#b8860b] outline-none transition-all appearance-none cursor-pointer"
+                    >
+                      <optgroup label="Doğal Taş Uygulamaları">
+                        <option value="Mermer Silim & Parlatma">Mermer Silim & Parlatma</option>
+                        <option value="Granit Silim & Kristalizasyon">Granit Silim & Kristalizasyon</option>
+                        <option value="Paledyen & Traverten Silim">Paledyen & Traverten Silim</option>
+                        <option value="Granit Kristalizasyon">Granit Kristalizasyon</option>
+                      </optgroup>
+                      <optgroup label="Seramik & Diğer Yüzeyler">
+                        <option value="Çini Temizleme & Fuga Yenileme">Çini Temizleme & Fuga Yenileme</option>
+                        <option value="Mozaik Yüzey Restorasyon">Mozaik Yüzey Restorasyon</option>
+                        <option value="Karo & Seramik Bakım Paketi">Karo & Seramik Bakım Paketi</option>
+                      </optgroup>
+                      <optgroup label="Endüstriyel Zeminler">
+                        <option value="Beton Zemin İşleme & Epoksi">Beton Zemin İşleme & Epoksi</option>
+                      </optgroup>
+                      <option value="Diğer / Belirtmek istiyorum">Diğer / Belirtmek istiyorum</option>
+                    </select>
                 </div>
 
                 <div>

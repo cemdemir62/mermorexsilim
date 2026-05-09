@@ -50,6 +50,36 @@ export const translations = {
           title: "Ticari Alan Restorasyonu",
           desc: "Oteller, alışveriş merkezleri ve ofisler için hızlı ve etkili büyük alan çözümleri.",
           fullDesc: "Oteller, iş merkezleri ve AVM'ler gibi yaya trafiğinin yoğun olduğu alanlarda mermer zeminler hızla yıpranır. Ticari alan restorasyon hizmetimizle, işletmenizin operasyonlarını aksatmadan, gece veya mesai dışı çalışma programlarıyla zeminlerinizi yeniliyoruz."
+        },
+        granit: {
+          title: "Granit Silim & Kristalizasyon",
+          desc: "Sert ve dayanıklı granit yüzeyler için elmas disklerle derinlemesine parlatma.",
+          fullDesc: "Granit, mermerden çok daha sert bir yapıya sahiptir. Bu nedenle özel elmas diskler ve yüksek devirli makineler gerektirir."
+        },
+        cini: {
+          title: "Çini Temizleme & Fuga Yenileme",
+          desc: "Eski çinilerde renk canlandırma ve profesyonel fuga dolgu hizmeti.",
+          fullDesc: "Geleneksel çini yüzeyler zamanla kirlenir ve fugaları kararır. Özel temizleyicilerimizle renkleri canlandırıyor ve fugaları yeniliyoruz."
+        },
+        mozaik: {
+          title: "Mozaik Yüzey Restorasyon",
+          desc: "Havuz ve ıslak zemin mozaikleri için hassas restorasyon ve koruma.",
+          fullDesc: "Küçük parçalardan oluşan mozaik yüzeyler, dökülme ve kirlenmeye karşı hassastır. Parça bütünlüğünü koruyarak restorasyon yapıyoruz."
+        },
+        karo: {
+          title: "Karo & Seramik Zemin Bakımı",
+          desc: "Porselen karo ve seramik zeminler için anti-slip ve derin temizleme.",
+          fullDesc: "Karo zeminlerde en büyük sorun kirlenmiş fugalar ve kaygan yüzeylerdir. Hem temizlik hem de güvenlik çözümleri sunuyoruz."
+        },
+        beton: {
+          title: "Beton Zemin İşleme & Epoksi",
+          desc: "Endüstriyel beton zeminler için zımparalama ve epoksi kaplama.",
+          fullDesc: "Fabrika, depo ve otoparklar için tozumasız, dayanıklı ve estetik beton zemin çözümleri sunuyoruz."
+        },
+        paledyen: {
+          title: "Paledyen & Traverten Silim",
+          desc: "Gözenekli yapısı olan traverten ve paledyen taşlar için dolgu ve silim.",
+          fullDesc: "Gözenekli taşlarda biriken kirleri temizleyip, özel dolgularla yüzeyi pürüzsüz hale getiriyoruz."
         }
       }
     },
@@ -180,6 +210,36 @@ export const translations = {
           title: "Commercial Area Restoration",
           desc: "Fast and effective large area solutions for hotels, shopping malls, and offices.",
           fullDesc: "Marble floors wear out quickly in areas with heavy pedestrian traffic such as hotels, business centers, and shopping malls. With our commercial area restoration service, we renew your floors with night or off-hours work programs without interrupting your business operations."
+        },
+        granit: {
+          title: "Granite Polishing & Crystallization",
+          desc: "Deep polishing for hard and durable granite surfaces with diamond disks.",
+          fullDesc: "Granite has a much harder structure than marble. Therefore, it requires special diamond disks and high-speed machines."
+        },
+        cini: {
+          title: "Tile Cleaning & Grout Renewal",
+          desc: "Color revitalization and professional grout filling service for old tiles.",
+          fullDesc: "Traditional tile surfaces get dirty over time and grouts darken. We revitalize colors and renew grouts with our special cleaners."
+        },
+        mozaik: {
+          title: "Mosaic Surface Restoration",
+          desc: "Precise restoration and protection for pool and wet area mosaics.",
+          fullDesc: "Mosaic surfaces consisting of small pieces are sensitive to shedding and dirt. We restore them while preserving the integrity of the pieces."
+        },
+        karo: {
+          title: "Tile & Ceramic Floor Maintenance",
+          desc: "Anti-slip and deep cleaning for porcelain tile and ceramic floors.",
+          fullDesc: "The biggest problem with tile floors is dirty grouts and slippery surfaces. We offer both cleaning and safety solutions."
+        },
+        beton: {
+          title: "Concrete Floor Processing & Epoxy",
+          desc: "Sanding and epoxy coating for industrial concrete floors.",
+          fullDesc: "We offer dust-free, durable, and aesthetic concrete floor solutions for factories, warehouses, and parking lots."
+        },
+        paledyen: {
+          title: "Paledyen & Travertine Polishing",
+          desc: "Filling and polishing for porous travertine and paledyen stones.",
+          fullDesc: "We clean dirt accumulating in porous stones and make the surface smooth with special fillers."
         }
       }
     },

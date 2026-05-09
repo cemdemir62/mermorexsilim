@@ -16,6 +16,8 @@ interface GalleryItem {
 
 export default function GalleryClient({ initialItems }: { initialItems: GalleryItem[] }) {
   const [items, setItems] = useState(initialItems);
+  const [selectedCategory, setSelectedCategory] = useState("MERMER");
+  const [isBeforeAfter, setIsBeforeAfter] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
@@ -29,8 +31,8 @@ export default function GalleryClient({ initialItems }: { initialItems: GalleryI
       const formData = new FormData();
       formData.append("image", file);
       formData.append("title", file.name.split(".")[0]);
-      formData.append("category", "Genel");
-      formData.append("isBeforeAfter", "false");
+      formData.append("category", selectedCategory);
+      formData.append("isBeforeAfter", isBeforeAfter ? "true" : "false");
 
       const result = await addGalleryItem(formData);
       if (result.error) {
@@ -40,10 +42,10 @@ export default function GalleryClient({ initialItems }: { initialItems: GalleryI
       }
     }
 
-    // Refresh items (In a real app, you might want to fetch from API or return new item from action)
+    // Refresh items
     window.location.reload(); 
     setUploading(false);
-  }, []);
+  }, [selectedCategory, isBeforeAfter]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -65,21 +67,53 @@ export default function GalleryClient({ initialItems }: { initialItems: GalleryI
 
   return (
     <div className="space-y-8">
-      {/* Upload Zone */}
-      <div 
-        {...getRootProps()} 
-        className={`border-2 border-dashed rounded-2xl p-10 text-center transition-all cursor-pointer ${
-          isDragActive ? "border-[#b8860b] bg-[#b8860b]/5" : "border-gray-300 hover:border-[#b8860b] bg-white"
-        }`}
-      >
-        <input {...getInputProps()} />
-        <div className="flex flex-col items-center">
-          <Upload className={`w-12 h-12 mb-4 ${isDragActive ? "text-[#b8860b]" : "text-gray-400"}`} />
-          <p className="text-lg font-medium text-gray-700">
-            {isDragActive ? "Dosyaları buraya bırakın" : "Resimleri sürükleyip bırakın veya tıklayın"}
-          </p>
-          <p className="text-sm text-gray-500 mt-2">PNG, JPG veya WebP formatında çoklu yükleme yapabilirsiniz</p>
-          {uploading && <p className="mt-4 text-[#b8860b] animate-pulse">Yükleniyor...</p>}
+      {/* Upload Controls */}
+      <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2 text-left">
+            <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Kategori</label>
+            <select 
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#b8860b] outline-none"
+            >
+              <option value="MERMER">Mermer</option>
+              <option value="GRANIT">Granit</option>
+              <option value="CINI">Çini</option>
+              <option value="MOZAIK">Mozaik</option>
+              <option value="KARO">Karo</option>
+              <option value="BETON">Beton</option>
+              <option value="PALEDYEN_TRAVERTEN">Paledyen/Traverten</option>
+            </select>
+          </div>
+          <div className="flex items-end pb-1">
+            <label className="flex items-center space-x-3 cursor-pointer group">
+              <div 
+                onClick={() => setIsBeforeAfter(!isBeforeAfter)}
+                className={`w-12 h-6 rounded-full transition-all relative ${isBeforeAfter ? "bg-[#b8860b]" : "bg-gray-200"}`}
+              >
+                <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all ${isBeforeAfter ? "left-7" : "left-1"}`}></div>
+              </div>
+              <span className="text-sm font-bold text-gray-700">Önce / Sonra Çalışması</span>
+            </label>
+          </div>
+        </div>
+
+        <div 
+          {...getRootProps()} 
+          className={`border-2 border-dashed rounded-2xl p-10 text-center transition-all cursor-pointer ${
+            isDragActive ? "border-[#b8860b] bg-[#b8860b]/5" : "border-gray-300 hover:border-[#b8860b] bg-gray-50"
+          }`}
+        >
+          <input {...getInputProps()} />
+          <div className="flex flex-col items-center">
+            <Upload className={`w-12 h-12 mb-4 ${isDragActive ? "text-[#b8860b]" : "text-gray-400"}`} />
+            <p className="text-lg font-medium text-gray-700">
+              {isDragActive ? "Dosyaları buraya bırakın" : "Resimleri sürükleyip bırakın veya tıklayın"}
+            </p>
+            <p className="text-sm text-gray-500 mt-2">PNG, JPG veya WebP formatında çoklu yükleme yapabilirsiniz</p>
+            {uploading && <p className="mt-4 text-[#b8860b] animate-pulse font-bold">Resimler Hazırlanıyor ve Yükleniyor...</p>}
+          </div>
         </div>
       </div>
 

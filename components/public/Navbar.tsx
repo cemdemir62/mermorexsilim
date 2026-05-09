@@ -63,17 +63,51 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-10">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-bold uppercase tracking-widest transition-colors ${
+            <Link href="/" className={`text-sm font-bold uppercase tracking-widest transition-colors ${scrolled ? "text-gray-900 hover:text-[#b8860b]" : "text-white hover:text-[#b8860b]"}`}>{t("nav.home")}</Link>
+            
+            {/* Services Mega Menu */}
+            <div className="relative group">
+              <Link 
+                href="/hizmetler" 
+                className={`text-sm font-bold uppercase tracking-widest transition-colors flex items-center ${
                   scrolled ? "text-gray-900 hover:text-[#b8860b]" : "text-white hover:text-[#b8860b]"
                 }`}
               >
-                {link.name}
+                {t("nav.services")}
+                <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
               </Link>
-            ))}
+              
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-[100]">
+                <div className="bg-white rounded-[2rem] shadow-2xl p-10 border border-gray-100 flex gap-12 min-w-[600px]">
+                  <div className="space-y-6">
+                    <h5 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.2em]">Doğal Taş</h5>
+                    <div className="flex flex-col space-y-4">
+                      <Link href="/hizmetler/mermer-silim-parlatma" className="text-gray-900 hover:text-[#b8860b] text-sm font-bold transition-colors">Mermer Silim</Link>
+                      <Link href="/hizmetler/granit" className="text-gray-900 hover:text-[#b8860b] text-sm font-bold transition-colors">Granit Silim</Link>
+                      <Link href="/hizmetler/paledyen-traverten" className="text-gray-900 hover:text-[#b8860b] text-sm font-bold transition-colors">Paledyen & Traverten</Link>
+                    </div>
+                  </div>
+                  <div className="space-y-6">
+                    <h5 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.2em]">Seramik & Yapay</h5>
+                    <div className="flex flex-col space-y-4">
+                      <Link href="/hizmetler/cini" className="text-gray-900 hover:text-[#b8860b] text-sm font-bold transition-colors">Çini Temizleme</Link>
+                      <Link href="/hizmetler/mozaik" className="text-gray-900 hover:text-[#b8860b] text-sm font-bold transition-colors">Mozaik Restorasyon</Link>
+                      <Link href="/hizmetler/karo" className="text-gray-900 hover:text-[#b8860b] text-sm font-bold transition-colors">Karo & Seramik</Link>
+                    </div>
+                  </div>
+                  <div className="space-y-6 border-l pl-12">
+                    <h5 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.2em]">Zemin</h5>
+                    <div className="flex flex-col space-y-4">
+                      <Link href="/hizmetler/beton" className="text-gray-900 hover:text-[#b8860b] text-sm font-bold transition-colors">Beton İşleme</Link>
+                      <Link href="/hizmetler/ticari-alan-restorasyonu" className="text-gray-900 hover:text-[#b8860b] text-sm font-bold transition-colors">Epoksi Kaplama</Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <Link href="/galeri" className={`text-sm font-bold uppercase tracking-widest transition-colors ${scrolled ? "text-gray-900 hover:text-[#b8860b]" : "text-white hover:text-[#b8860b]"}`}>{t("nav.gallery")}</Link>
+            <Link href="/blog" className={`text-sm font-bold uppercase tracking-widest transition-colors ${scrolled ? "text-gray-900 hover:text-[#b8860b]" : "text-white hover:text-[#b8860b]"}`}>{t("nav.blog")}</Link>
             
             {/* Language Switcher */}
             <div className={`flex items-center space-x-2 border-r pr-8 mr-8 ${scrolled ? "border-gray-200" : "border-white/20"}`}>
@@ -131,23 +165,42 @@ const Navbar = () => {
             className="fixed inset-0 z-40 md:hidden bg-white pt-32 px-10"
           >
             <div className="flex flex-col space-y-8">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Link 
-                    href={link.href} 
-                    onClick={() => setIsOpen(false)}
-                    className="text-4xl font-bold text-[#2c3e50] flex items-center justify-between group"
-                  >
-                    {link.name}
-                    <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity text-[#b8860b]" />
-                  </Link>
-                </motion.div>
-              ))}
+              {/* Home */}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
+                <Link href="/" onClick={() => setIsOpen(false)} className="text-4xl font-bold text-[#2c3e50] flex items-center justify-between group">
+                  {t("nav.home")}
+                  <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity text-[#b8860b]" />
+                </Link>
+              </motion.div>
+
+              {/* Services Mobile */}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }}>
+                <div className="space-y-4">
+                  <h3 className="text-4xl font-bold text-[#2c3e50]">{t("nav.services")}</h3>
+                  <div className="grid grid-cols-1 gap-3 pl-4">
+                    <Link href="/hizmetler/mermer-silim-parlatma" onClick={() => setIsOpen(false)} className="text-xl font-bold text-gray-400 hover:text-[#b8860b]">Mermer Silim</Link>
+                    <Link href="/hizmetler/granit" onClick={() => setIsOpen(false)} className="text-xl font-bold text-gray-400 hover:text-[#b8860b]">Granit Silim</Link>
+                    <Link href="/hizmetler/cini" onClick={() => setIsOpen(false)} className="text-xl font-bold text-gray-400 hover:text-[#b8860b]">Çini Temizleme</Link>
+                    <Link href="/hizmetler/beton" onClick={() => setIsOpen(false)} className="text-xl font-bold text-gray-400 hover:text-[#b8860b]">Beton İşleme</Link>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Gallery */}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}>
+                <Link href="/galeri" onClick={() => setIsOpen(false)} className="text-4xl font-bold text-[#2c3e50] flex items-center justify-between group">
+                  {t("nav.gallery")}
+                  <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity text-[#b8860b]" />
+                </Link>
+              </motion.div>
+
+              {/* Blog */}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
+                <Link href="/blog" onClick={() => setIsOpen(false)} className="text-4xl font-bold text-[#2c3e50] flex items-center justify-between group">
+                  {t("nav.blog")}
+                  <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity text-[#b8860b]" />
+                </Link>
+              </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

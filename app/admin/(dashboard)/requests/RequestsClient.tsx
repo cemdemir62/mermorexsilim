@@ -57,7 +57,11 @@ export default function RequestsClient({ initialRequests }: { initialRequests: a
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">{req.name}</h4>
-                    <p className="text-xs text-gray-500 font-medium">{req.service}</p>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="text-[10px] font-black uppercase tracking-tighter bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md">
+                        {req.service}
+                      </span>
+                    </div>
                   </div>
                   <button className="text-gray-300 hover:text-gray-600">
                     <MoreVertical size={18} />

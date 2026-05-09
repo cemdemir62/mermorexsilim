@@ -1,7 +1,7 @@
 "use client";
 
 import { SERVICES } from "@/lib/constants";
-import { Gem, Shield, Sparkles, Building2, ArrowRight } from "lucide-react";
+import { Gem, Shield, Sparkles, Building2, ArrowRight, Diamond, Grid2X2, Puzzle, Layers, Waves } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -10,6 +10,11 @@ const iconMap: any = {
   Sparkles: <Sparkles className="w-12 h-12 text-[#b8860b]" />,
   Shield: <Shield className="w-12 h-12 text-[#b8860b]" />,
   Building2: <Building2 className="w-12 h-12 text-[#b8860b]" />,
+  Diamond: <Diamond className="w-12 h-12 text-[#b8860b]" />,
+  Grid2X2: <Grid2X2 className="w-12 h-12 text-[#b8860b]" />,
+  Puzzle: <Puzzle className="w-12 h-12 text-[#b8860b]" />,
+  Layers: <Layers className="w-12 h-12 text-[#b8860b]" />,
+  Waves: <Waves className="w-12 h-12 text-[#b8860b]" />,
 };
 
 import { useLanguage } from "@/lib/LanguageContext";
@@ -31,7 +36,7 @@ const Services = () => {
           <h2 className="text-4xl md:text-5xl font-bold">{t("services.title")}</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {SERVICES.map((service, index) => (
             <motion.div
               key={service.slug}
