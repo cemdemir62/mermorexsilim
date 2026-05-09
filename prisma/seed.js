@@ -63,35 +63,23 @@ async function main() {
   await prisma.galleryItem.deleteMany();
 
   // Create Gallery Items
+  // Create Gallery Items
   const galleryItems = [
-    {
-      title: "Lüks Otel Lobisi Parlatma",
-      category: "Mermer Silim",
-      imageUrl: "/images/gallery-1.png",
-      isBeforeAfter: false,
-      order: 1
-    },
-    {
-      title: "Profesyonel Ekipman Çalışması",
-      category: "Uygulama",
-      imageUrl: "/images/gallery-2.png",
-      isBeforeAfter: false,
-      order: 2
-    },
-    {
-      title: "Premium Banyo Restorasyonu",
-      category: "Restorasyon",
-      imageUrl: "/images/gallery-3.png",
-      isBeforeAfter: false,
-      order: 3
-    },
-    {
-      title: "Önce ve Sonra Karşılaştırması",
-      category: "Restorasyon",
-      imageUrl: "/images/gallery-4.png",
-      isBeforeAfter: true,
-      order: 4
-    }
+    { title: "Mermer Silim & Parlatma", category: "MERMER", imageUrl: "/images/gallery/gallery-mermer-1.png", isBeforeAfter: true, order: 1 },
+    { title: "Mermer Kristalize Cila", category: "MERMER", imageUrl: "/images/gallery/gallery-mermer-2.png", isBeforeAfter: true, order: 2 },
+    { title: "Granit Yüzey Yenileme", category: "GRANIT", imageUrl: "/images/gallery/gallery-granit-1.png", isBeforeAfter: true, order: 3 },
+    { title: "Granit Mutfak Tezgahı", category: "GRANIT", imageUrl: "/images/gallery/gallery-granit-2.png", isBeforeAfter: true, order: 4 },
+    { title: "Geleneksel Çini Temizliği", category: "CINI", imageUrl: "/images/gallery/gallery-cini-1.png", isBeforeAfter: true, order: 5 },
+    { title: "Çini Fuga Yenileme", category: "CINI", imageUrl: "/images/gallery/gallery-cini-2.png", isBeforeAfter: true, order: 6 },
+    { title: "Havuz Mozaik Restorasyonu", category: "MOZAIK", imageUrl: "/images/gallery/gallery-mozaik-1.png", isBeforeAfter: true, order: 7 },
+    { title: "Dekoratif Mozaik Duvar", category: "MOZAIK", imageUrl: "/images/gallery/gallery-mozaik-2.png", isBeforeAfter: true, order: 8 },
+    { title: "Seramik Karo Derin Temizlik", category: "KARO", imageUrl: "/images/gallery/gallery-karo-1.png", isBeforeAfter: true, order: 9 },
+    { title: "Banyo Karo Kaymaz Kaplama", category: "KARO", imageUrl: "/images/gallery/gallery-karo-2.png", isBeforeAfter: true, order: 10 },
+    { title: "Endüstriyel Beton Parlatma", category: "BETON", imageUrl: "/images/gallery/gallery-beton-1.png", isBeforeAfter: true, order: 11 },
+    { title: "Garaj Epoksi Kaplama", category: "BETON", imageUrl: "/images/gallery/gallery-beton-2.png", isBeforeAfter: true, order: 12 },
+    { title: "Traverten Delik Dolgu", category: "PALEDYEN_TRAVERTEN", imageUrl: "/images/gallery/gallery-traverten-1.png", isBeforeAfter: true, order: 13 },
+    { title: "Dış Mekan Traverten Bakımı", category: "PALEDYEN_TRAVERTEN", imageUrl: "/images/gallery/gallery-traverten-2.png", isBeforeAfter: true, order: 14 },
+    { title: "Paledyen Zemin Restorasyonu", category: "PALEDYEN_TRAVERTEN", imageUrl: "/images/gallery/gallery-paledyen-1.png", isBeforeAfter: true, order: 15 },
   ];
 
   for (const item of galleryItems) {
