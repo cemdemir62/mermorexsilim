@@ -134,7 +134,7 @@ const ContactForm = () => {
                         <option value="Karo & Seramik Bakım Paketi">Karo & Seramik Bakım Paketi</option>
                       </optgroup>
                       <optgroup label="Endüstriyel Zeminler">
-                        <option value="Beton Zemin İşleme & Epoksi">Beton Zemin İşleme & Epoksi</option>
+                        <option value="Beton Zemin Silim & Epoksi">Beton Zemin Silim & Epoksi</option>
                       </optgroup>
                       <option value="Diğer / Belirtmek istiyorum">Diğer / Belirtmek istiyorum</option>
                     </select>

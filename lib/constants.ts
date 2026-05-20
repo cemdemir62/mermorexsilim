@@ -55,11 +55,11 @@ export const SERVICES = [
   {
     slug: "beton",
     translationKey: "beton",
-    title: "Beton Zemin İşleme & Epoksi",
+    title: "Beton Zemin Silim & Epoksi",
     description: "Endüstriyel beton zeminler için zımparalama ve epoksi kaplama.",
     fullDescription: "Fabrika, depo ve otoparklar için tozumasız, dayanıklı ve estetik beton zemin çözümleri sunuyoruz.",
     iconName: "Building2",
-    image: "/images/gallery-2.png",
+    image: "/images/beton-silim.png",
     material: "beton"
   },
   {

@@ -72,7 +72,7 @@ export const translations = {
           fullDesc: "Karo zeminlerde en büyük sorun kirlenmiş fugalar ve kaygan yüzeylerdir. Hem temizlik hem de güvenlik çözümleri sunuyoruz."
         },
         beton: {
-          title: "Beton Zemin İşleme & Epoksi",
+          title: "Beton Zemin Silim & Epoksi",
           desc: "Endüstriyel beton zeminler için zımparalama ve epoksi kaplama.",
           fullDesc: "Fabrika, depo ve otoparklar için tozumasız, dayanıklı ve estetik beton zemin çözümleri sunuyoruz."
         },
@@ -232,7 +232,7 @@ export const translations = {
           fullDesc: "The biggest problem with tile floors is dirty grouts and slippery surfaces. We offer both cleaning and safety solutions."
         },
         beton: {
-          title: "Concrete Floor Processing & Epoxy",
+          title: "Concrete Floor Polishing & Epoxy",
           desc: "Sanding and epoxy coating for industrial concrete floors.",
           fullDesc: "We offer dust-free, durable, and aesthetic concrete floor solutions for factories, warehouses, and parking lots."
         },

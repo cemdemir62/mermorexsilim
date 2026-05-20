@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import MaterialServicePage from "@/components/public/MaterialServicePage";
 
 export const metadata: Metadata = {
-  title: "Beton Zemin İşleme & Epoksi Kaplama | Mermorex Silim",
+  title: "Beton Zemin Silim & Epoksi Kaplama | Mermorex Silim",
   description: "Endüstriyel ve dekoratif beton zeminler için zımparalama, çatlak dolgu ve epoksi kaplama hizmetleri.",
   keywords: "beton zemin parlatma, epoksi kaplama, beton zımparalama, mikro çimento bakımı, endüstriyel zemin",
 };
@@ -12,8 +12,8 @@ export default function BetonPage() {
     <MaterialServicePage
       slug="beton"
       title="Beton"
-      image="/images/gallery-2.png"
-      materialImage="/images/service-2.png"
+      image="/images/beton-silim.png"
+      materialImage="/images/beton-silim.png"
       materialInfo={{
         hardness: "Mohs 3-5 (Zayıf/Orta)",
         porosity: "Çok Yüksek",
