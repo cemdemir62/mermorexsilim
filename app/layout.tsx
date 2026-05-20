@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import WhatsAppButton from "@/components/public/WhatsAppButton";
 import { LanguageProvider } from "@/lib/LanguageContext";
+import VisitorTracker from "@/components/public/VisitorTracker";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -71,6 +72,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <LanguageProvider>
+          <VisitorTracker />
           {children}
           <WhatsAppButton />
         </LanguageProvider>

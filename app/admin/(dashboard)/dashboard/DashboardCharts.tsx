@@ -12,17 +12,18 @@ import {
   Area
 } from "recharts";
 
-const data = [
-  { name: "Pzt", talepler: 4, ziyaret: 240 },
-  { name: "Sal", talepler: 3, ziyaret: 198 },
-  { name: "Çar", talepler: 2, ziyaret: 350 },
-  { name: "Per", talepler: 6, ziyaret: 480 },
-  { name: "Cum", talepler: 8, ziyaret: 600 },
-  { name: "Cmt", talepler: 5, ziyaret: 300 },
-  { name: "Paz", talepler: 2, ziyaret: 150 },
-];
+interface ChartItem {
+  name: string;
+  talepler: number;
+  ziyaret: number;
+}
 
-export default function DashboardCharts() {
+interface DashboardChartsProps {
+  data: ChartItem[];
+}
+
+export default function DashboardCharts({ data }: DashboardChartsProps) {
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100">

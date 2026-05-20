@@ -22,13 +22,78 @@ const StatCard = ({ title, value, icon, color }: any) => (
 );
 
 export default async function DashboardPage() {
-  const [requestsCount, galleryCount, blogCount, recentRequests, logs] = await Promise.all([
-    prisma.contactRequest.count(),
+  const today = new Date();
+  
+  // Format to YYYY-MM-DD in Europe/Istanbul timezone
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Istanbul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+  
+  const dayFormatter = new Intl.DateTimeFormat("tr-TR", {
+    timeZone: "Europe/Istanbul",
+    weekday: "short",
+  });
+
+  const dates: { dateStr: string; dayName: string }[] = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(today.getDate() - i);
+    const dateStr = formatter.format(d); // YYYY-MM-DD
+    const dayName = dayFormatter.format(d).replace(".", ""); // "Pzt", "Sal", etc.
+    dates.push({ dateStr, dayName });
+  }
+
+  const visitKeys = dates.map(d => `visit_count:${d.dateStr}`);
+  const startDate = new Date();
+  startDate.setDate(today.getDate() - 7);
+
+  const [
+    pendingCount,
+    galleryCount,
+    blogCount,
+    totalVisitsRecord,
+    dbVisits,
+    dbRequests,
+    recentRequests,
+    logs
+  ] = await Promise.all([
+    prisma.contactRequest.count({ where: { status: "NEW" } }),
     prisma.galleryItem.count(),
     prisma.blogPost.count(),
+    prisma.setting.findUnique({ where: { key: "total_visits" } }),
+    prisma.setting.findMany({ where: { key: { in: visitKeys } } }),
+    prisma.contactRequest.findMany({
+      where: { createdAt: { gte: startDate } }
+    }),
     prisma.contactRequest.findMany({ take: 5, orderBy: { createdAt: "desc" } }),
     prisma.activityLog.findMany({ take: 5, orderBy: { createdAt: "desc" } }),
   ]);
+
+  const totalVisits = totalVisitsRecord?.value || "0";
+
+  const visitsMap = dbVisits.reduce((acc, curr) => {
+    acc[curr.key] = parseInt(curr.value, 10);
+    return acc;
+  }, {} as Record<string, number>);
+
+  const requestsMap = dbRequests.reduce((acc, curr) => {
+    const dateStr = formatter.format(curr.createdAt);
+    acc[dateStr] = (acc[dateStr] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+
+  const chartData = dates.map(d => {
+    const dailyVisits = visitsMap[`visit_count:${d.dateStr}`] || 0;
+    const dailyRequests = requestsMap[d.dateStr] || 0;
+    return {
+      name: d.dayName,
+      talepler: dailyRequests,
+      ziyaret: dailyVisits,
+    };
+  });
 
   return (
     <div className="space-y-8 animate-fade-in pb-10">
@@ -36,7 +101,7 @@ export default async function DashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard 
           title="Bekleyen Talepler" 
-          value={requestsCount} 
+          value={pendingCount} 
           icon={<MessageSquare className="text-blue-600" size={24} />} 
           color="bg-blue-600" 
         />
@@ -54,14 +119,15 @@ export default async function DashboardPage() {
         />
         <StatCard 
           title="Toplam Ziyaret" 
-          value="1,284" 
+          value={totalVisits} 
           icon={<TrendingUp className="text-green-600" size={24} />} 
           color="bg-green-600" 
         />
       </div>
 
       {/* Charts Section */}
-      <DashboardCharts />
+      <DashboardCharts data={chartData} />
+
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Recent Requests */}
