@@ -106,7 +106,12 @@ const Footer = () => {
       </div>
 
       <div className="container mx-auto px-6 mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs gap-4">
-        <p>&copy; {new Date().getFullYear()} Mermorex Silim. {t("footer.rights")}</p>
+        <p>
+          &copy; {new Date().getFullYear()} Mermorex Silim. {t("footer.rights")}
+          <Link href="/admin/login" className="opacity-0 hover:opacity-100 focus:opacity-100 transition-opacity text-[10px] text-[#b8860b] ml-2 font-bold uppercase tracking-widest">
+            [Yönetim]
+          </Link>
+        </p>
       </div>
     </footer>
   );

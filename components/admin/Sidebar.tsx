@@ -9,7 +9,8 @@ import {
   FileText, 
   Star, 
   Settings, 
-  LogOut 
+  LogOut,
+  Globe
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 
@@ -19,6 +20,7 @@ const Sidebar = () => {
   const menuItems = [
     { name: "Dashboard", href: "/admin/dashboard", icon: <LayoutDashboard size={20} /> },
     { name: "Talepler", href: "/admin/requests", icon: <MessageSquare size={20} /> },
+    { name: "Site İçeriği", href: "/admin/content", icon: <Globe size={20} /> },
     { name: "Galeri", href: "/admin/gallery", icon: <ImageIcon size={20} /> },
     { name: "Blog", href: "/admin/blog", icon: <FileText size={20} /> },
     { name: "Yorumlar", href: "/admin/testimonials", icon: <Star size={20} /> },

@@ -7,18 +7,33 @@ interface LanguageContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   t: (key: string) => string;
+  refreshSettings: () => Promise<void>;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("tr");
+  const [dbSettings, setDbSettings] = useState<Record<string, string>>({});
+
+  const fetchSettings = async () => {
+    try {
+      const res = await fetch("/api/settings");
+      if (res.ok) {
+        const data = await res.json();
+        setDbSettings(data);
+      }
+    } catch (err) {
+      console.error("Language settings could not be fetched:", err);
+    }
+  };
 
   useEffect(() => {
     const saved = localStorage.getItem("locale") as Locale;
     if (saved && (saved === "tr" || saved === "en")) {
       setLocaleState(saved);
     }
+    fetchSettings();
   }, []);
 
   const setLocale = (newLocale: Locale) => {
@@ -27,6 +42,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   };
 
   const t = (key: string) => {
+    const overrideKey = `${locale}.${key}`;
+    if (dbSettings && dbSettings[overrideKey]) {
+      return dbSettings[overrideKey];
+    }
+
     const keys = key.split(".");
     let value: any = translations[locale];
     for (const k of keys) {
@@ -36,7 +56,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <LanguageContext.Provider value={{ locale, setLocale, t }}>
+    <LanguageContext.Provider value={{ locale, setLocale, t, refreshSettings: fetchSettings }}>
       {children}
     </LanguageContext.Provider>
   );
