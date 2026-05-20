@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
@@ -39,10 +40,13 @@ const BeforeAfterSlider = ({
       onTouchMove={handleMove}
     >
       {/* After Image (Background) */}
-      <img 
+      <Image 
         src={afterImage} 
         alt="Sonra" 
-        className="absolute inset-0 w-full h-full object-cover"
+        fill
+        sizes="(max-width: 768px) 100vw, 80vw"
+        className="object-cover"
+        priority
       />
 
       {/* Before Image (Clipped) */}
@@ -50,12 +54,16 @@ const BeforeAfterSlider = ({
         className="absolute inset-0 w-full h-full overflow-hidden"
         style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
       >
-        <img 
-          src={beforeImage} 
-          alt="Önce" 
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ width: containerRef.current?.offsetWidth }}
-        />
+        <div className="absolute inset-0 w-full h-full">
+          <Image 
+            src={beforeImage} 
+            alt="Önce" 
+            fill
+            sizes="(max-width: 768px) 100vw, 80vw"
+            className="object-cover"
+            priority
+          />
+        </div>
       </div>
 
       {/* Slider Line */}

@@ -131,10 +131,12 @@ export default function GalleryClient({ initialItems }: { initialItems: GalleryI
         {items.map((item) => (
           <div key={item.id} className="group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 transition-all hover:shadow-md">
             <div className="aspect-square relative">
-              <img 
+              <Image 
                 src={item.imageUrl} 
                 alt={item.title || "Galeri Resmi"} 
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-2">
                 <button 

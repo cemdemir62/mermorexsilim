@@ -12,8 +12,14 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("tr");
+export function LanguageProvider({ 
+  children,
+  initialLocale = "tr"
+}: { 
+  children: React.ReactNode;
+  initialLocale?: Locale;
+}) {
+  const [locale, setLocaleState] = useState<Locale>(initialLocale);
   const [dbSettings, setDbSettings] = useState<Record<string, string>>({});
 
   const fetchSettings = async () => {
@@ -29,9 +35,18 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
-    const saved = localStorage.getItem("locale") as Locale;
-    if (saved && (saved === "tr" || saved === "en")) {
-      setLocaleState(saved);
+    const params = new URLSearchParams(window.location.search);
+    const langParam = params.get("lang") as Locale;
+    
+    if (langParam && (langParam === "tr" || langParam === "en")) {
+      setLocaleState(langParam);
+      localStorage.setItem("locale", langParam);
+      document.cookie = `locale=${langParam};path=/;max-age=${60 * 60 * 24 * 365}`;
+    } else {
+      const saved = localStorage.getItem("locale") as Locale;
+      if (saved && (saved === "tr" || saved === "en")) {
+        setLocaleState(saved);
+      }
     }
     fetchSettings();
   }, []);
@@ -39,6 +54,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
     localStorage.setItem("locale", newLocale);
+    document.cookie = `locale=${newLocale};path=/;max-age=${60 * 60 * 24 * 365}`;
   };
 
   const t = (key: string) => {

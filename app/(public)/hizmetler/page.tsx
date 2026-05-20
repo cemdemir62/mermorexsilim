@@ -6,6 +6,7 @@ import Navbar from "@/components/public/Navbar";
 import Footer from "@/components/public/Footer";
 import Link from "next/link";
 import { Gem, Shield, Sparkles, Building2, ArrowRight, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 const iconMap: any = {
   Gem: <Gem size={40} className="text-[#b8860b]" />,
@@ -73,11 +74,13 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <div className="lg:w-1/2 w-full">
-                  <div className="aspect-video bg-gray-100 rounded-[2rem] overflow-hidden shadow-2xl group">
-                    <img 
+                  <div className="relative aspect-video bg-gray-100 rounded-[2rem] overflow-hidden shadow-2xl group">
+                    <Image 
                       src={service.image || ""} 
                       alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
                 </div>

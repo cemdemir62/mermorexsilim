@@ -6,6 +6,7 @@ import Footer from "@/components/public/Footer";
 import ContactForm from "@/components/public/ContactForm";
 import { CheckCircle2, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const iconMap: any = {
   Gem: <CheckCircle2 size={48} className="text-[#b8860b]" />,
@@ -58,11 +59,13 @@ export default function ServiceDetailClient({ service }: { service: any }) {
               </div>
             </div>
             <div className="relative group">
-              <div className="aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100">
-                <img 
+              <div className="relative aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100">
+                <Image 
                   src={service.image || ""} 
                   alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
             </div>

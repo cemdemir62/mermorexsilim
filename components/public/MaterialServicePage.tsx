@@ -7,6 +7,7 @@ import ContactForm from "@/components/public/ContactForm";
 import { CheckCircle2, ArrowRight, Shield, Zap, Clock, Info } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface ProcessStep {
   title: string;
@@ -55,7 +56,14 @@ export default function MaterialServicePage({
       {/* Hero Section */}
       <section className="relative pt-40 pb-24 bg-[#0f0e17] text-white overflow-hidden">
         <div className="absolute inset-0">
-          <img src={image} alt={title} className="w-full h-full object-cover opacity-30" />
+          <Image 
+            src={image} 
+            alt={title} 
+            fill
+            sizes="100vw"
+            className="object-cover opacity-30" 
+            priority
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e17] via-[#0f0e17]/80 to-transparent"></div>
         </div>
         <div className="container mx-auto px-6 relative z-10">
@@ -107,8 +115,14 @@ export default function MaterialServicePage({
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
-                <img src={materialImage} alt={title} className="w-full h-full object-cover" />
+              <div className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
+                <Image 
+                  src={materialImage} 
+                  alt={title} 
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover" 
+                />
               </div>
               <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-xl border border-gray-100 hidden md:block">
                 <div className="flex items-center space-x-4">

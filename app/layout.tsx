@@ -4,6 +4,7 @@ import "./globals.css";
 import WhatsAppButton from "@/components/public/WhatsAppButton";
 import { LanguageProvider } from "@/lib/LanguageContext";
 import VisitorTracker from "@/components/public/VisitorTracker";
+import { cookies } from "next/headers";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -21,11 +22,14 @@ export const metadata: Metadata = {
   keywords: "mermer silim, mermer parlatma, mermer restorasyon, istanbul mermer silim, beton parlatma",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const locale = (cookieStore.get("locale")?.value || "tr") as any;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -63,7 +67,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="tr" className="scroll-smooth">
+    <html lang={locale} className="scroll-smooth">
       <head>
         <script
           type="application/ld+json"
@@ -71,7 +75,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
-        <LanguageProvider>
+        <LanguageProvider initialLocale={locale}>
           <VisitorTracker />
           {children}
           <WhatsAppButton />
