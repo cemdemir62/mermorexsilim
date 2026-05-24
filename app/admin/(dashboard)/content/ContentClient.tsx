@@ -66,9 +66,13 @@ export default function ContentClient({ initialSettings }: { initialSettings: Re
     { key: "services.items.karo.title", label: "Karo & Seramik Kart Başlığı", category: "services", isTextArea: false },
     { key: "services.items.karo.desc", label: "Karo & Seramik Kısa Açıklaması", category: "services", isTextArea: true },
     
-    { key: "services.items.beton.title", label: "Beton Silim Kart Başlığı", category: "services", isTextArea: false },
-    { key: "services.items.beton.desc", label: "Beton Silim Kısa Açıklaması", category: "services", isTextArea: true },
-    { key: "services.items.beton.fullDesc", label: "Beton Silim Detaylı Açıklaması", category: "services", isTextArea: true },
+    { key: "services.items.betonCilali.title", label: "Cilalı Beton Silim Kart Başlığı", category: "services", isTextArea: false },
+    { key: "services.items.betonCilali.desc", label: "Cilalı Beton Silim Kısa Açıklaması", category: "services", isTextArea: true },
+    { key: "services.items.betonCilali.fullDesc", label: "Cilalı Beton Silim Detaylı Açıklaması", category: "services", isTextArea: true },
+    
+    { key: "services.items.betonCilasiz.title", label: "Cilasız (Mat) Beton Silim Kart Başlığı", category: "services", isTextArea: false },
+    { key: "services.items.betonCilasiz.desc", label: "Cilasız (Mat) Beton Silim Kısa Açıklaması", category: "services", isTextArea: true },
+    { key: "services.items.betonCilasiz.fullDesc", label: "Cilasız (Mat) Beton Silim Detaylı Açıklaması", category: "services", isTextArea: true },
     
     { key: "services.items.paledyen.title", label: "Paledyen & Traverten Kart Başlığı", category: "services", isTextArea: false },
     { key: "services.items.paledyen.desc", label: "Paledyen & Traverten Kısa Açıklaması", category: "services", isTextArea: true },

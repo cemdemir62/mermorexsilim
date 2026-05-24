@@ -71,10 +71,15 @@ export const translations = {
           desc: "Porselen karo ve seramik zeminler için anti-slip ve derin temizleme.",
           fullDesc: "Karo zeminlerde en büyük sorun kirlenmiş fugalar ve kaygan yüzeylerdir. Hem temizlik hem de güvenlik çözümleri sunuyoruz."
         },
-        beton: {
-          title: "Beton Zemin Silim & Epoksi",
-          desc: "Endüstriyel beton zeminler için zımparalama ve epoksi kaplama.",
-          fullDesc: "Fabrika, depo ve otoparklar için tozumasız, dayanıklı ve estetik beton zemin çözümleri sunuyoruz."
+        betonCilali: {
+          title: "Cilalı Beton Silimi",
+          desc: "Tozumasız, estetik ve ayna parlaklığında beton parlatma hizmeti.",
+          fullDesc: "Cilalı beton silimi, endüstriyel veya dekoratif beton zeminlerin elmas pedler yardımıyla kademeli olarak silinerek pürüzsüzleştirilmesi ve yüksek parlaklığa ulaştırılması işlemidir. Kimyasal lityum silikat zemin sertleştiriciler ile betonun mukavemeti artırılır, tozuma tamamen engellenir ve mermer benzeri estetik bir ayna parlaklığı kazandırılır. Showroomlar, ofisler, oteller ve modern konutlarda tercih edilir."
+        },
+        betonCilasiz: {
+          title: "Cilasız (Mat) Beton Silimi",
+          desc: "Kaymazlık, yüksek dayanım ve tozumasız mat beton silim hizmeti.",
+          fullDesc: "Cilasız (Mat/Yarı Mat) beton silimi, yoğun yaya veya araç trafiği altındaki endüstriyel tesisler, depolar, fabrikalar ve otoparklar için ideal zemin çözümüdür. Yüzeydeki pürüzler giderilir, beton gözenekleri açılır ve özel sıvı sertleştiriciler uygulanarak tozuma %100 oranında önlenir. Aşınma direnci en üst seviyeye çıkarılırken, mat veya yarı mat (saten) görünümü sayesinde kaymaz ve son derece güvenli, uzun ömürlü bir zemin elde edilir."
         },
         paledyen: {
           title: "Paledyen & Traverten Silim",
@@ -231,10 +236,15 @@ export const translations = {
           desc: "Anti-slip and deep cleaning for porcelain tile and ceramic floors.",
           fullDesc: "The biggest problem with tile floors is dirty grouts and slippery surfaces. We offer both cleaning and safety solutions."
         },
-        beton: {
-          title: "Concrete Floor Polishing & Epoxy",
-          desc: "Sanding and epoxy coating for industrial concrete floors.",
-          fullDesc: "We offer dust-free, durable, and aesthetic concrete floor solutions for factories, warehouses, and parking lots."
+        betonCilali: {
+          title: "Polished Concrete Grinding",
+          desc: "Dust-free, aesthetic, and mirror-like concrete polishing service.",
+          fullDesc: "Polished concrete grinding is the process of gradually grinding and polishing industrial or decorative concrete floors with diamond pads to achieve a smooth, high-gloss finish. Chemical lithium silicate densifiers are applied to increase concrete strength, completely prevent dusting, and provide an aesthetic, marble-like mirror shine. It is highly preferred in showrooms, offices, hotels, and modern residential lofts."
+        },
+        betonCilasiz: {
+          title: "Unpolished (Matte) Concrete Grinding",
+          desc: "Non-slip, high durability, and dust-free matte concrete grinding service.",
+          fullDesc: "Unpolished (Matte/Satin) concrete grinding is the ideal flooring solution for industrial facilities, warehouses, factories, and parking lots with heavy pedestrian or vehicle traffic. Surface roughness is eliminated, concrete pores are opened, and liquid densifiers are applied to prevent dusting by 100%. While wear resistance is maximized, a matte or semi-gloss (satin) finish provides a non-slip, extremely safe, and highly durable surface."
         },
         paledyen: {
           title: "Paledyen & Travertine Polishing",

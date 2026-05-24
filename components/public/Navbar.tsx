@@ -98,7 +98,8 @@ const Navbar = () => {
                   <div className="space-y-6 border-l pl-12">
                     <h5 className="text-[#b8860b] text-[10px] font-black uppercase tracking-[0.2em]">Zemin</h5>
                     <div className="flex flex-col space-y-4">
-                      <Link href="/hizmetler/beton" className="text-gray-900 hover:text-[#b8860b] text-sm font-bold transition-colors">Beton Silim</Link>
+                      <Link href="/hizmetler/beton-cilali" className="text-gray-900 hover:text-[#b8860b] text-sm font-bold transition-colors">Cilalı Beton</Link>
+                      <Link href="/hizmetler/beton-cilasiz" className="text-gray-900 hover:text-[#b8860b] text-sm font-bold transition-colors">Cilasız (Mat) Beton</Link>
                       <Link href="/hizmetler/ticari-alan-restorasyonu" className="text-gray-900 hover:text-[#b8860b] text-sm font-bold transition-colors">Epoksi Kaplama</Link>
                     </div>
                   </div>
@@ -181,7 +182,8 @@ const Navbar = () => {
                     <Link href="/hizmetler/mermer-silim-parlatma" onClick={() => setIsOpen(false)} className="text-xl font-bold text-gray-400 hover:text-[#b8860b]">Mermer Silim</Link>
                     <Link href="/hizmetler/granit" onClick={() => setIsOpen(false)} className="text-xl font-bold text-gray-400 hover:text-[#b8860b]">Granit Silim</Link>
                     <Link href="/hizmetler/cini" onClick={() => setIsOpen(false)} className="text-xl font-bold text-gray-400 hover:text-[#b8860b]">Çini Temizleme</Link>
-                    <Link href="/hizmetler/beton" onClick={() => setIsOpen(false)} className="text-xl font-bold text-gray-400 hover:text-[#b8860b]">Beton Silim</Link>
+                    <Link href="/hizmetler/beton-cilali" onClick={() => setIsOpen(false)} className="text-xl font-bold text-gray-400 hover:text-[#b8860b]">Cilalı Beton</Link>
+                    <Link href="/hizmetler/beton-cilasiz" onClick={() => setIsOpen(false)} className="text-xl font-bold text-gray-400 hover:text-[#b8860b]">Cilasız (Mat) Beton</Link>
                   </div>
                 </div>
               </motion.div>

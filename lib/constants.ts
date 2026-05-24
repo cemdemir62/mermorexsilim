@@ -53,13 +53,23 @@ export const SERVICES = [
     material: "karo"
   },
   {
-    slug: "beton",
-    translationKey: "beton",
-    title: "Beton Zemin Silim & Epoksi",
-    description: "Endüstriyel beton zeminler için zımparalama ve epoksi kaplama.",
-    fullDescription: "Fabrika, depo ve otoparklar için tozumasız, dayanıklı ve estetik beton zemin çözümleri sunuyoruz.",
-    iconName: "Building2",
-    image: "/images/beton-silim.png",
+    slug: "beton-cilali",
+    translationKey: "betonCilali",
+    title: "Cilalı Beton Silimi",
+    description: "Tozumasız, estetik ve ayna parlaklığında beton parlatma hizmeti.",
+    fullDescription: "Endüstriyel ve dekoratif beton zeminlerde elmas pedlerle kademeli silim yapılarak yüzeyin cam gibi parlaması sağlanır. Hem dayanıklı hem son derece estetiktir.",
+    iconName: "Sparkles",
+    image: "/images/beton-cilali.png",
+    material: "beton"
+  },
+  {
+    slug: "beton-cilasiz",
+    translationKey: "betonCilasiz",
+    title: "Cilasız (Mat) Beton Silimi",
+    description: "Kaymazlık, yüksek dayanım ve tozumasız mat beton silim hizmeti.",
+    fullDescription: "Fabrika, depo, otopark gibi endüstriyel alanlar için tozumayı önleyen, kaymazlık sağlayan ve aşınma direncini artıran mat/yarı mat silim çözümü.",
+    iconName: "Shield",
+    image: "/images/beton-cilasiz.png",
     material: "beton"
   },
   {
