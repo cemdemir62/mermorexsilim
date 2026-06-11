@@ -34,9 +34,9 @@ export default async function RootLayout({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Mermorex Silim",
-    "image": "https://mermorexsilim.com/images/hero.png",
-    "@id": "https://mermorexsilim.com",
-    "url": "https://mermorexsilim.com",
+    "image": "https://www.mermorexsilim.com.tr/images/hero.png",
+    "@id": "https://www.mermorexsilim.com.tr",
+    "url": "https://www.mermorexsilim.com.tr",
     "telephone": "+905XXXXXXXXX",
     "address": {
       "@type": "PostalAddress",
