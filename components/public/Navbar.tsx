@@ -133,12 +133,13 @@ const Navbar = () => {
       {/* Premium Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.nav 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 md:hidden bg-white pt-32 px-10"
+            aria-label="Mobile Navigation"
           >
             <div className="flex flex-col space-y-8">
               {/* Home */}
@@ -185,7 +186,7 @@ const Navbar = () => {
                 className="pt-10"
               >
                 <Link 
-                  href="#contact" 
+                  href="/#contact" 
                   className="btn-primary block text-center py-5 text-xl" 
                   onClick={() => setIsOpen(false)}
                 >
@@ -198,7 +199,7 @@ const Navbar = () => {
               <span>Mermorex Silim</span>
               <span>2024</span>
             </div>
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </>
