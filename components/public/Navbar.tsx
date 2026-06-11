@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Moon, Sun, ArrowRight } from "lucide-react";
+import { Menu, X, Phone, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useLanguage } from "@/lib/LanguageContext";
@@ -11,38 +11,19 @@ const Navbar = () => {
   const { locale, setLocale, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     
-    // Theme initialization
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    } else if (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    }
+    // Force light mode by removing dark class and setting theme preference to light
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newDark = !isDark;
-    setIsDark(newDark);
-    if (newDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
+  }, [],);
 
   const navLinks = [
     { name: t("nav.home"), href: "/" },
@@ -127,13 +108,7 @@ const Navbar = () => {
               </button>
             </div>
             
-            {/* Dark Mode Toggle */}
-            <button 
-              onClick={toggleDarkMode}
-              className={`p-2 rounded-full transition-colors ${scrolled ? "text-gray-900 hover:bg-gray-100" : "text-white hover:bg-white/10"}`}
-            >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
+
 
             <Link
               href="/#contact"
