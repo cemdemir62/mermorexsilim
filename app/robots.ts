@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/admin/',
     },
-    sitemap: 'https://mermorexsilim.com/sitemap.xml',
+    sitemap: 'https://mermorexsilim.com.tr/sitemap.xml',
   }
 }
